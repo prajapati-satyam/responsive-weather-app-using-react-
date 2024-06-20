@@ -1,0 +1,31 @@
+<!-- LatitudeIcon.svg -->
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 10 10"
+  width="10"
+  height="10"
+>
+  <path
+    d="M2,1 L8,1 L5,9 Z"
+    fill="#ff5f5f"
+    stroke="#ff0000"
+    stroke-width="0.5"
+  >
+    <animate
+      attributeName="stroke-width"
+      from="0.5"
+      to="1"
+      dur="0.5s"
+      begin="0s"
+      repeatCount="indefinite"
+    />
+    <animate
+      attributeName="opacity"
+      from="1"
+      to="0"
+      dur="0.5s"
+      begin="0s"
+      repeatCount="indefinite"
+    />
+  </path>
+</svg>

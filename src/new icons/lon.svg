@@ -1,0 +1,31 @@
+<!-- LongitudeIcon.svg -->
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 10 10"
+  width="10"
+  height="10"
+>
+  <path
+    d="M1,2 L9,2 L5,8 Z"
+    fill="#5f5fff"
+    stroke="#0000ff"
+    stroke-width="0.5"
+  >
+    <animate
+      attributeName="stroke-width"
+      from="0.5"
+      to="1"
+      dur="0.5s"
+      begin="0s"
+      repeatCount="indefinite"
+    />
+    <animate
+      attributeName="opacity"
+      from="1"
+      to="0"
+      dur="0.5s"
+      begin="0s"
+      repeatCount="indefinite"
+    />
+  </path>
+</svg>

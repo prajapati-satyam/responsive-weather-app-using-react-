@@ -1,0 +1,19 @@
+<!-- SmallStableGroundIcon.svg -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
+  <!-- Ground -->
+  <path d="M0 12 Q 4 10, 8 12 T 12 12 T 16 12 V 16 H 0 Z" fill="#cc9966" />
+
+  <!-- Air Effect -->
+  <path d="M0 8 Q 3 7, 6 8 T 9 8 T 12 8 V 12 H 0 Z" fill="#ffeecc">
+    <animate
+      attributeName="d"
+      dur="2s"
+      repeatCount="indefinite"
+      values="
+        M0 8 Q 3 6, 6 8 T 9 8 T 12 8 V 12 H 0 Z;
+        M0 8 Q 3 8, 6 8 T 9 8 T 12 8 V 12 H 0 Z;
+        M0 8 Q 3 7, 6 8 T 9 8 T 12 8 V 12 H 0 Z
+      "
+    />
+  </path>
+</svg>

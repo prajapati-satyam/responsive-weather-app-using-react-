@@ -1,0 +1,29 @@
+<!-- VerySmallRealisticOceanWaveIcon.svg -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
+  <!-- Waves -->
+  <path d="M0 12 Q 4 8, 8 12 T 12 12 T 16 12 V 16 H 0 Z" fill="#66b3ff">
+    <animate
+      attributeName="d"
+      dur="3s"
+      repeatCount="indefinite"
+      values="
+        M0 12 Q 4 6, 8 12 T 12 12 T 16 12 V 16 H 0 Z;
+        M0 12 Q 4 10, 8 12 T 12 12 T 16 12 V 16 H 0 Z;
+        M0 12 Q 4 8, 8 12 T 12 12 T 16 12 V 16 H 0 Z
+      "
+    />
+  </path>
+  
+  <path d="M-4 12 Q 0 16, 4 12 T 10 12 T 14 12 V 16 H -4 Z" fill="#3399ff">
+    <animate
+      attributeName="d"
+      dur="3s"
+      repeatCount="indefinite"
+      values="
+        M-4 12 Q 0 14, 4 12 T 10 12 T 14 12 V 16 H -4 Z;
+        M-4 12 Q 0 18, 4 12 T 10 12 T 14 12 V 16 H -4 Z;
+        M-4 12 Q 0 16, 4 12 T 10 12 T 14 12 V 16 H -4 Z
+      "
+    />
+  </path>
+</svg>

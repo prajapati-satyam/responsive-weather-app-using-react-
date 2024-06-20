@@ -1,0 +1,8 @@
+.desingScrollbar {
+    scrollbar-color: rgb(169, 219, 228) #d9f6ff;
+    scroll-margin: 20px;
+    margin-top: 20px;
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    /* filter: opacity(50%); */
+}
