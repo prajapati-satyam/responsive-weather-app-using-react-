@@ -50,7 +50,8 @@ const Weather = () => {
     try {
       const baseUrl = import.meta.env.VITE_BASEURl;
       const key = import.meta.env.VITE_APPID;
-      const finalUrl = `${baseUrl}=${city}&appid=${key}&units=${unit}`;
+      const trimvalue = city.trim();
+      const finalUrl = `${baseUrl}=${trimvalue}&appid=${key}&units=${unit}`;
       const data = await fetch(finalUrl);
       const jsondata = await data.json();
       if (jsondata.cod === 200) {
