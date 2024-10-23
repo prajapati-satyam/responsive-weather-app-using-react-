@@ -52,8 +52,18 @@ const Weather = () => {
       const key = import.meta.env.VITE_APPID;
       const trimvalue = city.trim();
       const finalUrl = `${baseUrl}=${trimvalue}&appid=${key}&units=${unit}`;
-      const data = await fetch(finalUrl);
-      const jsondata = await data.json();
+      const data = await fetch(
+        'https://vercel.com/satyam-prajapati-s-projects/backend-for-resposive-weather-app/Ff62ukiHcmfR4cBVnzeJyZ1nZEb8/weather',
+        {
+          method: "POST", 
+          headers: {
+            'Content-Type': 'application/json', // Moved into 'headers'
+          },
+          body: JSON.stringify({url: finalUrl})
+        });
+        const jsondata = await data.json();
+        // console.log(jsondata)
+      // console.log(jsondata)
       if (jsondata.cod === 200) {
         setData(jsondata);
 
