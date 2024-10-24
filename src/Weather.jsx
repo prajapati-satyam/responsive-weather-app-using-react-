@@ -27,6 +27,17 @@ const Weather = () => {
   const degreeSybol = '°';
   const [windSpeedUnit, setWindunit] = useState('meter/sec');
   const [temp_unit, setTempunit] = useState(degreeSybol + 'C');
+  async function send() {
+    const send = await fetch('https://backend-for-resposive-weather-app.vercel.app/info');
+    const data = await send.json()
+    console.log(data)
+  }
+
+  useEffect(() => {
+      send();
+    
+  }, [])
+  
 
   const inputHandler = (e) => {
     setCity(e.target.value);
@@ -52,15 +63,7 @@ const Weather = () => {
       const key = import.meta.env.VITE_APPID;
       const trimvalue = city.trim();
       const finalUrl = `${baseUrl}=${trimvalue}&appid=${key}&units=${unit}`;
-      const data = await fetch(
-        'https://backend-for-resposive-weather-app.vercel.app/weather',
-        {
-          method: "POST", 
-          headers: {
-            'Content-Type': 'application/json', // Moved into 'headers'
-          },
-          body: JSON.stringify({url: finalUrl})
-        });
+      const data = await fetch(finalUrl);
         const jsondata = await data.json();
         // console.log(jsondata)
       // console.log(jsondata)
