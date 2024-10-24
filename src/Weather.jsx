@@ -53,7 +53,7 @@ const Weather = () => {
       const trimvalue = city.trim();
       const finalUrl = `${baseUrl}=${trimvalue}&appid=${key}&units=${unit}`;
       const data = await fetch(
-        'https://vercel.com/satyam-prajapati-s-projects/backend-for-resposive-weather-app/Ff62ukiHcmfR4cBVnzeJyZ1nZEb8/weather',
+        'https://backend-for-resposive-weather-app.vercel.app/weather',
         {
           method: "POST", 
           headers: {
