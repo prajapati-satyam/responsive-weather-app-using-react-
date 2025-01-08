@@ -159,7 +159,7 @@ const Weather = () => {
             </div>
             <div className="icon-item">
               <img src={cloudy} className='h-48 w-full object-contain' alt="Day" />
-              <p className='text-sm text-center'>{maindata.main && maindata.clouds.all ? `Clouds: ${maindata.clouds.all}%` : `Clouds: ...`}</p>
+              <p className='text-sm text-center'>{maindata.main && maindata.main ? `Clouds: ${maindata.clouds.all}%` : `Clouds: ...`}</p>
             </div>
             <div className="icon-item">
               <img src={borometer} className='h-48 w-full object-contain' alt="Day" />
