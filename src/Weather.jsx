@@ -62,7 +62,7 @@ const Weather = () => {
       // const baseUrl = import.meta.env.VITE_BASEURl;
       // const key = import.meta.env.VITE_APPID;
       const trimvalue = city.trim();
-      const baseUrl = `${import.meta.env.VITE_BASEURL}/${trimvalue}/${unit}`;
+      const baseUrl = `${import.meta.env.VITE_BASEURl}/${trimvalue}/${unit}`;
       const finalUrl = `${baseUrl}`;
       const data = await fetch(finalUrl);
         const jsondata = await data.json();
