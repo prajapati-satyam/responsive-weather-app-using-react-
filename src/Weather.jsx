@@ -30,11 +30,12 @@ const Weather = () => {
   async function send() {
     const send = await fetch('https://backend-for-resposive-weather-app.vercel.app/info');
     const data = await send.json();
+    console.log(data)
     const location = data?.location?.country;
     console.log(location);
     const location_trim = location?.trim() || "";
     if (location_trim) {
-      const location_data =  await fetch(`${import.meta.env.VITE_BASEURl}/${location_trim}/metric`);
+      const location_data =  await fetch(`${import.meta.VITE_BASEURl}/${location_trim}/metric`);
       const location_data_json = await location_data.json();
       setData(location_data_json);
     }
