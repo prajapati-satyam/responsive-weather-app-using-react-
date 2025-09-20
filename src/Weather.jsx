@@ -9,8 +9,8 @@ import humidity from './new icons/humidity.svg';
 import warmer from './new icons/thermometer-warmer.svg';
 import colder from './new icons/thermometer-colder.svg';
 import wind from './new icons/wind.svg';
-import sunrise from './new icons/sunrise.svg'; 
-import sunset from './new icons/sunset.svg'; 
+import sunrise from './new icons/sunrise.svg';
+import sunset from './new icons/sunset.svg';
 import windDirection from './new icons/windsock.svg';
 import lat from './new icons/Location.svg';
 import lon from './new icons/location1.svg';
@@ -29,15 +29,20 @@ const Weather = () => {
   const [temp_unit, setTempunit] = useState(degreeSybol + 'C');
   async function send() {
     const send = await fetch('https://backend-for-resposive-weather-app.vercel.app/info');
-    const data = await send.json()
-    console.log(data)
+    const data = await send.json();
+    const location = data?.location?.name;
+    const location_trim = location.trim();
+    if (location_trim) {
+      const location_data =  await fetch(`${import.meta.env.VITE_BASEURl}/${location_trim}/metric`);
+      const location_data_json = await location_data.json();
+      setData(location_data_json);
+    }
   }
 
   useEffect(() => {
-      send();
-    
-  }, [])
-  
+    send();
+  }, []);
+
 
   const inputHandler = (e) => {
     setCity(e.target.value);
@@ -70,6 +75,7 @@ const Weather = () => {
       // console.log(jsondata)
       if (jsondata.cod === 200) {
         setData(jsondata);
+        console.log(jsondata)
 
         if (unit === 'metric' || unit === 'standard') {
           setWindunit('meter/sec');
@@ -139,16 +145,16 @@ const Weather = () => {
 
           <div className="icons grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
             <div className="icon-item">
-              <img src={maindata.weather && maindata.weather[0].icon ? `https://openweathermap.org/img/wn/${maindata.weather[0].icon}@2x.png` : day} className='h-48 w-full object-contain' alt="Day" />
-              <p className='text-sm text-center'>{maindata.weather && maindata.weather[0].main ? `Overview: ${maindata.weather[0].main}` : "Overview..."}</p>
+              <img src={maindata?.weather && maindata?.weather[0]?.icon ? `https://openweathermap.org/img/wn/${maindata.weather[0].icon}@2x.png` : maindata?.current?.weather_icons[0] ? maindata?.current?.weather_icons[0] :day} className='h-48 w-full object-contain bg-transparent rounded-[10px]' alt="Day" />
+              <p className='text-sm text-center'>{maindata?.weather && maindata?.weather[0].main ? `Overview: ${maindata?.weather[0]?.main}` : maindata?.current?.weather_descriptions?.[0] ? `Overview: ${maindata?.current?.weather_descriptions[0]}` : "Overview..."}</p>
             </div>
             <div className="icon-item">
               <img src={day} className='h-48 w-full object-contain' alt="Day" />
-              <p className='text-sm text-center'>{maindata.main && maindata.main.temp ? `Current Temp: ${maindata.main.temp}${temp_unit}` : `Current Temp: ...`}</p>
+              <p className='text-sm text-center'>{maindata?.main && maindata?.main?.temp ? `Current Temp: ${maindata.main.temp}${temp_unit}` : maindata?.current?.temperature ? `Current Temp: ${maindata?.current?.temperature}` : `Current Temp: ...`}</p>
             </div>
             <div className="icon-item">
               <img src={day} className='h-48 w-full object-contain' alt="Day" />
-              <p className='text-sm text-center'>{maindata.main && maindata.main.feels_like ? `Feels Like: ${maindata.main.feels_like}${temp_unit}` : `Feels Like: ...`}</p>
+              <p className='text-sm text-center'>{maindata?.main && maindata?.main?.feels_like ? `Feels Like: ${maindata.main.feels_like}${temp_unit}` : maindata?.current?.feelslike ? `Feels Like: ${maindata?.current?.feelslike}` : `Feels Like: ...`}</p>
             </div>
             <div className="icon-item">
               <img src={colder} className='h-48 w-full object-contain' alt="Day" />
